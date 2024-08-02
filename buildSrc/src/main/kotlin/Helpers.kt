@@ -106,7 +106,8 @@ fun Project.setupApp() {
         packagingOptions.jniLibs.useLegacyPackaging = true
         splits.abi {
             isEnable = true
-            isUniversalApk = true
+            reset()
+            include("arm64-v8a")
         }
     }
 
