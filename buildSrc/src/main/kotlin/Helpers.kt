@@ -73,7 +73,7 @@ fun Project.setupCore() {
     dependencies.add("coreLibraryDesugaring", "com.android.tools:desugar_jdk_libs:2.0.2")
 }
 
-private val abiCodes = mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 3, "x86_64" to 4)
+private val abiCodes = mapOf("arm64-v8a" to 2)
 fun Project.setupApp() {
     setupCore()
 

@@ -17,7 +17,7 @@ android {
         consumerProguardFiles("proguard-rules.pro")
 
         externalNativeBuild.ndkBuild {
-            abiFilters("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
+            abiFilters("arm64-v8a")
             arguments("-j${Runtime.getRuntime().availableProcessors()}")
         }
 
@@ -37,7 +37,7 @@ android {
 cargo {
     module = "src/main/rust/shadowsocks-rust"
     libname = "sslocal"
-    targets = listOf("arm", "arm64", "x86", "x86_64")
+    targets = listOf("arm64")
     profile = findProperty("CARGO_PROFILE")?.toString() ?: currentFlavor
     extraCargoBuildArguments = listOf("--bin", libname!!)
     featureSpec.noDefaultBut(arrayOf(
