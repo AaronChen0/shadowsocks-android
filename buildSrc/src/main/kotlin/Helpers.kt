@@ -26,10 +26,9 @@ val Project.currentFlavor get() = gradle.startParameter.taskRequests.toString().
 
 fun Project.setupCommon() {
     android.apply {
-        buildToolsVersion("33.0.1")
         compileSdkVersion(33)
         defaultConfig {
-            minSdk = 23
+            minSdk = 29
             targetSdk = 33
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         }
@@ -59,8 +58,8 @@ fun Project.setupCore() {
     setupCommon()
     android.apply {
         defaultConfig {
-            versionCode = 5030451
-            versionName = "5.3.4"
+            versionCode = 5030452
+            versionName = "5.3.4.1"
         }
         compileOptions.isCoreLibraryDesugaringEnabled = true
         lint.apply {
@@ -68,7 +67,7 @@ fun Project.setupCore() {
             warning += "RestrictedApi"
             disable += "UseAppTint"
         }
-        ndkVersion = "25.1.8937393"
+        ndkVersion = "27.0.12077973"
     }
     dependencies.add("coreLibraryDesugaring", "com.android.tools:desugar_jdk_libs:2.0.2")
 }
