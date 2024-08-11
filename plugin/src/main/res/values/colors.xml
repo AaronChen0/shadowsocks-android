@@ -11,7 +11,6 @@
   <color name="material_blue_grey_700">#455A64</color>
   <color name="material_primary_100">@color/material_blue_grey_100</color>
   <color name="material_primary_300">@color/material_blue_grey_300</color>
-  <color name="material_primary_500">@color/material_blue_grey_500</color>
   <color name="material_primary_600">@color/material_blue_grey_600</color>
   <color name="material_primary_700">@color/material_blue_grey_700</color>
   <color name="material_primary_800">@color/material_blue_grey_800</color>

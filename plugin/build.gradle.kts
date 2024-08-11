@@ -10,11 +10,16 @@ setupCommon()
 android {
     namespace = "com.github.shadowsocks.plugin"
     lint.informational += "GradleDependency"
+
+    sourceSets {
+        getByName("main") {
+            res.srcDirs("../core/src/main/res")
+        }
+    }
 }
 
 dependencies {
-    api(kotlin("stdlib-jdk8"))
-    api("androidx.core:core-ktx:1.7.0")
-    api("androidx.fragment:fragment-ktx:1.5.5")
-    api("com.google.android.material:material:1.6.0")
+    api("androidx.core:core-ktx:1.13.1")
+    api("androidx.fragment:fragment-ktx:1.8.2")
+    api("com.google.android.material:material:1.12.0")
 }

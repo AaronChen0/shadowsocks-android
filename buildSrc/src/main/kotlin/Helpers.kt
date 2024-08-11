@@ -1,4 +1,3 @@
-
 import com.android.build.VariantOutput
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.gradle.AbstractAppExtension
@@ -15,7 +14,7 @@ import java.util.*
 const val lifecycleVersion = "2.5.1"
 
 private val Project.android get() = extensions.getByName<BaseExtension>("android")
-private val BaseExtension.lint get() = (this as CommonExtension<*, *, *, *>).lint
+private val BaseExtension.lint get() = (this as CommonExtension<*, *, *, *, *, *>).lint
 
 private val flavorRegex = "(assemble|generate)\\w*(Release|Debug)".toRegex()
 val Project.currentFlavor get() = gradle.startParameter.taskRequests.toString().let { task ->
@@ -26,14 +25,13 @@ val Project.currentFlavor get() = gradle.startParameter.taskRequests.toString().
 
 fun Project.setupCommon() {
     android.apply {
-        buildToolsVersion("33.0.1")
-        compileSdkVersion(33)
+        compileSdkVersion(34)
         defaultConfig {
-            minSdk = 23
-            targetSdk = 33
+            minSdk = 30
+            targetSdk = 34
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         }
-        val javaVersion = JavaVersion.VERSION_11
+        val javaVersion = JavaVersion.VERSION_17
         compileOptions {
             sourceCompatibility = javaVersion
             targetCompatibility = javaVersion
@@ -44,6 +42,7 @@ fun Project.setupCommon() {
             informational += "MissingQuantity"
             informational += "MissingTranslation"
         }
+
         (this as ExtensionAware).extensions.getByName<KotlinJvmOptions>("kotlinOptions").jvmTarget =
                 javaVersion.toString()
     }
@@ -68,9 +67,9 @@ fun Project.setupCore() {
             warning += "RestrictedApi"
             disable += "UseAppTint"
         }
-        ndkVersion = "25.1.8937393"
+        ndkVersion = "27.0.12077973"
     }
-    dependencies.add("coreLibraryDesugaring", "com.android.tools:desugar_jdk_libs:2.0.2")
+    dependencies.add("coreLibraryDesugaring", "com.android.tools:desugar_jdk_libs:2.0.4")
 }
 
 private val abiCodes = mapOf("arm64-v8a" to 2)
@@ -104,6 +103,7 @@ fun Project.setupApp() {
         }
         lint.disable += "RemoveWorkManagerInitializer"
         packagingOptions.jniLibs.useLegacyPackaging = true
+
         splits.abi {
             isEnable = true
             reset()

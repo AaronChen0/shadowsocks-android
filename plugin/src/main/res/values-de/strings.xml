@@ -28,6 +28,5 @@
     <string name="yes">"Ja"</string>
     <string name="no">"Nein"</string>
     <string name="apply">"Anwenden"</string>
-    <string name="file_manager_missing">"Bitte installiere einen Dateimanager, z.B. MiXplorer"</string>
     <string name="browse">"Durchsuchen..."</string>
 </resources>
