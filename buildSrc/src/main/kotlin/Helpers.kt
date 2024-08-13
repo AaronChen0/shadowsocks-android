@@ -29,7 +29,7 @@ fun Project.setupCommon() {
         buildToolsVersion("33.0.1")
         compileSdkVersion(33)
         defaultConfig {
-            minSdk = 23
+            minSdk = 29
             targetSdk = 33
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         }
