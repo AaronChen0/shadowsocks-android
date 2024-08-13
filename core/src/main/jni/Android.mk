@@ -31,9 +31,9 @@ LIBEVENT_SOURCES := \
 
 LOCAL_MODULE := event
 LOCAL_SRC_FILES := $(addprefix libevent/, $(LIBEVENT_SOURCES))
-LOCAL_CFLAGS := -I$(LOCAL_PATH)/libevent \
+LOCAL_CFLAGS := -Wno-error=implicit-function-declaration\
+	-I$(LOCAL_PATH)/libevent \
 	-I$(LOCAL_PATH)/libevent/include \
-	-Wno-error=implicit-function-declaration
 
 include $(BUILD_STATIC_LIBRARY)
 
