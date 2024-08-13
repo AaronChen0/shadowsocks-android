@@ -33,6 +33,7 @@ LOCAL_MODULE := event
 LOCAL_SRC_FILES := $(addprefix libevent/, $(LIBEVENT_SOURCES))
 LOCAL_CFLAGS :=	-I$(LOCAL_PATH)/libevent \
 	-I$(LOCAL_PATH)/libevent/include \
+	-I$(LOCAL_PATH)/libevent/include/event2 \
 	-Wno-error=implicit-function-declaration
 
 include $(BUILD_STATIC_LIBRARY)
