@@ -14,6 +14,13 @@ const val lifecycleVersion = "2.5.1"
 private val Project.android get() = extensions.getByName<BaseExtension>("android")
 private val BaseExtension.lint get() = (this as CommonExtension<*, *, *, *, *, *>).lint
 
+private val flavorRegex = "(assemble|generate)\\w*(Release|Debug)".toRegex()
+val Project.currentFlavor get() = gradle.startParameter.taskRequests.toString().let { task ->
+    flavorRegex.find(task)?.groupValues?.get(2)?.lowercase() ?: "debug".also {
+        println("Warning: No match found for $task")
+    }
+}
+
 fun Project.setupCommon() {
     android.apply {
         compileSdkVersion(34)

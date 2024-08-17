@@ -14,8 +14,8 @@
 
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
--keepattributes SourceFile,LineNumberTable
--dontobfuscate
+#-keepattributes SourceFile,LineNumberTable
+#-dontobfuscate
 -dontwarn org.slf4j.impl.StaticLoggerBinder
 -dontwarn org.xbill.DNS.spi.DnsjavaInetAddressResolverProvider
 -dontwarn sun.net.spi.nameservice.NameServiceDescriptor
