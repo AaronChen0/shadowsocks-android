@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/code
     docker:
-      - image: cimg/android:2024.07.1-ndk
+      - image: cimg/android:2024.08.1-ndk
     environment:
       GRADLE_OPTS: -Dorg.gradle.workers.max=1 -Dorg.gradle.daemon=false
       RUST_VERSION: 1.80.0
