@@ -26,6 +26,7 @@ include $(CLEAR_VARS)
 
 LIBEVENT_SOURCES := \
 	buffer.c bufferevent.c event.c \
+	bufferevent_pair.c bufferevent_filter.c \
 	bufferevent_sock.c bufferevent_ratelim.c \
 	evthread.c log.c evutil.c evutil_rand.c evutil_time.c evmap.c epoll.c poll.c signal.c select.c
 
