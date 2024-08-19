@@ -8,7 +8,7 @@
 	branch = shadowsocks-android
 [submodule "core/src/main/jni/libevent"]
 	path = core/src/main/jni/libevent
-	url = https://github.com/shadowsocks/libevent.git
+	url = https://github.com/AaronChen0/libevent.git
 	branch = shadowsocks-android
 [submodule "core/src/main/jni/redsocks"]
 	path = core/src/main/jni/redsocks
