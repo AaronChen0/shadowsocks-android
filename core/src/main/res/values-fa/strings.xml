@@ -187,7 +187,7 @@
     <string name="edit_subscription">"ویرایش اشتراک"</string>
     <string name="update_subscription">"سرورها را از اشتراک تازه کنید"</string>
     <string name="service_subscription">"خدمات اشتراک"</string>
-    <string name="service_subscription_working">"همگام سازی اشتراک ها… (%d از%d)"</string>
+    <string name="service_subscription_working" formatted="false">"همگام سازی اشتراک ها… (%d از%d)"</string>
     <string name="service_subscription_finishing">"درحال پایان دادن..."</string>
     <string name="plugin_auto_connect_unlock_only">"این پلاگین ممکن است با اتصال خودکار کار نکند"</string>
 </resources>

@@ -188,6 +188,6 @@
     <string name="edit_subscription">"编辑订阅"</string>
     <string name="update_subscription">"更新订阅"</string>
     <string name="service_subscription">"订阅服务"</string>
-    <string name="service_subscription_working">"正在更新订阅 (%d / %d)"</string>
+    <string name="service_subscription_working" formatted="false">"正在更新订阅 (%d / %d)"</string>
     <string name="service_subscription_finishing">"订阅更新中"</string>
 </resources>

@@ -177,7 +177,7 @@ Empfangen: \t%4$s\t↓\t%2$s"</string>
     <string name="edit_subscription">"Subscription bearbeiten"</string>
     <string name="update_subscription">"Serverliste mithilfe Subscription aktualisieren"</string>
     <string name="service_subscription">"Subscription-Dienst"</string>
-    <string name="service_subscription_working">"Synchronisiere Subscriptions… (%d von %d)"</string>
+    <string name="service_subscription_working" formatted="false">"Synchronisiere Subscriptions… (%d von %d)"</string>
     <string name="service_subscription_finishing">"Gleich fertig..."</string>
     <string name="plugin_auto_connect_unlock_only">"Dieses Plugin funktioniert eventuell nicht mit \"Automatisch verbinden\""</string>
 </resources>

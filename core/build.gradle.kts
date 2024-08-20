@@ -115,8 +115,6 @@ dependencies {
     api("androidx.work:work-runtime-ktx:$workVersion")
     api("com.google.android.gms:play-services-oss-licenses:17.0.0")
     api("com.google.code.gson:gson:2.11.0")
-    api("com.google.firebase:firebase-analytics-ktx:21.2.0")
-    api("com.google.firebase:firebase-crashlytics:18.3.3")
     api("com.jakewharton.timber:timber:5.0.1")
     api("dnsjava:dnsjava:3.6.1")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")

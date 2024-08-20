@@ -26,6 +26,20 @@
   <string name="connection_test_fail">Internet Unavailable</string>
   <string name="connection_test_error_status_code">Error code: #%d</string>
 
+  <string name="advanced">"Advanced"</string>
+  <string name="auto_connect_summary_v24">"Allow Shadowsocks to start with the system. It is recommended to use an always-on VPN."</string>
+  <string name="invalid_server">"Invalid Server"</string>
+  <string name="night_mode">"Night Mode"</string>
+  <string name="night_mode_auto">"Auto"</string>
+  <string name="night_mode_off">"Off"</string>
+  <string name="night_mode_on">"On"</string>
+  <string name="night_mode_system">"Follow System"</string>
+  <string name="received">"Received: "</string>
+  <string name="sent">"Sent"</string>
+  <string name="tcp_fastopen_failure">"TCP fastopen failed"</string>
+  <string name="tcp_fastopen_summary">"Need to be root"</string>
+  <string name="tcp_fastopen_summary_unsupported">"Unsupported kernel version"</string>
+
   <!-- proxy category -->
   <string name="profile_name">Profile Name</string>
   <string name="proxy">Server</string>
@@ -139,7 +153,7 @@
   <string name="edit_subscription">Edit subscription</string>
   <string name="update_subscription">Refresh servers from subscription</string>
   <string name="service_subscription">Subscription Service</string>
-  <string name="service_subscription_working">Syncing subscriptions… (%d of %d)</string>
+  <string name="service_subscription_working" formatted="false">Syncing subscriptions… (%d of %d)</string>
   <string name="service_subscription_finishing">Finishing up…</string>
 
   <!-- acl -->

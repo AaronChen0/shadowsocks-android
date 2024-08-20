@@ -195,7 +195,7 @@
     <string name="edit_subscription">"Изменить подписку"</string>
     <string name="update_subscription">"Обновить серверы из подписки"</string>
     <string name="service_subscription">"Служба подписки"</string>
-    <string name="service_subscription_working">"Синхронизация подписок… (%d из %d)"</string>
+    <string name="service_subscription_working" formatted="false">"Синхронизация подписок… (%d из %d)"</string>
     <string name="service_subscription_finishing">"Завершение…"</string>
     <string name="plugin_auto_connect_unlock_only">"Этот плагин может не работать с «Автоподключением»"</string>
 </resources>
