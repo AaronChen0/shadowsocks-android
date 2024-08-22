@@ -3,8 +3,10 @@ import com.android.build.gradle.AbstractAppExtension
 import com.android.build.gradle.BaseExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
+import org.gradle.api.plugins.ExtensionAware
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByName
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 import java.util.*
 
 const val lifecycleVersion = "2.5.1"
@@ -32,16 +34,15 @@ fun Project.setupCommon() {
             sourceCompatibility = javaVersion
             targetCompatibility = javaVersion
         }
-        kotlinOptions {
-            jvmTarget = javaVersion.toString()
-        }
-
         lint.apply {
             warning += "ExtraTranslation"
             warning += "ImpliedQuantity"
             informational += "MissingQuantity"
             informational += "MissingTranslation"
         }
+
+        (this as ExtensionAware).extensions.getByName<KotlinJvmOptions>("kotlinOptions").jvmTarget =
+                javaVersion.toString()
     }
 
     dependencies {
@@ -75,10 +76,10 @@ fun Project.setupApp() {
             "zh-rCN",
         ))
         buildTypes {
-            debug {
+            getByName("debug") {
                 isPseudoLocalesEnabled = true
             }
-            release {
+            getByName("release") {
                 isShrinkResources = true
                 isMinifyEnabled = true
                 proguardFile(getDefaultProguardFile("proguard-android.txt"))
