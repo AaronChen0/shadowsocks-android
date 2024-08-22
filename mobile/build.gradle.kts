@@ -15,7 +15,6 @@ android {
     
     defaultConfig {
         applicationId = "com.github.shadowsocks"
-        buildConfigField("boolean", "VERSION_NAME", "false")
     }
 
     sourceSets {

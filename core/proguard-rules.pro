@@ -16,6 +16,7 @@
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable
 #-dontobfuscate
+-dontwarn java.net.spi.InetAddressResolverProvider
 -dontwarn org.slf4j.impl.StaticLoggerBinder
 -dontwarn org.xbill.DNS.spi.DnsjavaInetAddressResolverProvider
 -dontwarn sun.net.spi.nameservice.NameServiceDescriptor
