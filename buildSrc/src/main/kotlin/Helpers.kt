@@ -59,7 +59,6 @@ fun Project.setupCore() {
             versionCode = 5030454
             versionName = "5.3.4"
         }
-        compileOptions.isCoreLibraryDesugaringEnabled = true
         lint.apply {
             disable += "BadConfigurationProvider"
             warning += "RestrictedApi"
@@ -67,7 +66,6 @@ fun Project.setupCore() {
         }
         ndkVersion = "27.0.12077973"
     }
-    dependencies.add("coreLibraryDesugaring", "com.android.tools:desugar_jdk_libs:2.0.4")
 }
 
 fun Project.setupApp() {
