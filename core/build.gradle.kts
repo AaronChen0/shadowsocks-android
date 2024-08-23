@@ -56,8 +56,6 @@ cargo {
     extraCargoBuildArguments = listOf("--bin", libname!!)
     features {
         noDefaultBut(arrayOf(
-                         "stream-cipher",
-                         "aead-cipher-extra",
                          "logging",
                          "local-flow-stat",
                          "local-dns",
