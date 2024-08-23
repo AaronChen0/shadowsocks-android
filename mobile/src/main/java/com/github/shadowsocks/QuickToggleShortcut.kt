@@ -45,7 +45,7 @@ class QuickToggleShortcut : Activity(), ShadowsocksConnection.Callback {
                     ShortcutInfoCompat.Builder(this, "toggle")
                             .setIntent(Intent(this, QuickToggleShortcut::class.java).setAction(Intent.ACTION_MAIN))
                             .setIcon(IconCompat.createWithResource(this, R.drawable.ic_qu_shadowsocks_launcher))
-                            .setShortLabel(getString(R.string.quick_toggle))
+                            .setShortLabel(getString(com.github.shadowsocks.Core.R.string.quick_toggle))
                             .build()))
             finish()
         } else {

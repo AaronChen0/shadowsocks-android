@@ -32,7 +32,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.whenStarted
 import com.github.shadowsocks.MainActivity
 import com.github.shadowsocks.R
-import com.google.android.material.R as MR
+import com.github.shadowsocks.Core.R as CR
 import com.github.shadowsocks.bg.BaseService
 import com.github.shadowsocks.net.HttpsTest
 import com.google.android.material.bottomappbar.BottomAppBar
@@ -40,7 +40,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class StatsBar @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null,
-                                         defStyleAttr: Int = MR.attr.bottomAppBarStyle) :
+                                         defStyleAttr: Int = com.google.android.material.R.attr.bottomAppBarStyle) :
         BottomAppBar(context, attrs, defStyleAttr) {
     private lateinit var statusText: TextView
     private lateinit var txText: TextView
@@ -89,9 +89,9 @@ class StatsBar @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
             tester.status.removeObservers(activity)
             if (state != BaseService.State.Idle) tester.invalidate()
             setStatus(context.getText(when (state) {
-                BaseService.State.Connecting -> R.string.connecting
-                BaseService.State.Stopping -> R.string.stopping
-                else -> R.string.not_connected
+                BaseService.State.Connecting -> CR.string.connecting
+                BaseService.State.Stopping -> CR.string.stopping
+                else -> CR.string.not_connected
             }))
         }
     }
@@ -99,8 +99,8 @@ class StatsBar @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
     fun updateTraffic(txRate: Long, rxRate: Long, txTotal: Long, rxTotal: Long) {
         txText.text = "▲ ${Formatter.formatFileSize(context, txTotal)}"
         rxText.text = "▼ ${Formatter.formatFileSize(context, rxTotal)}"
-        txRateText.text = context.getString(R.string.speed, Formatter.formatFileSize(context, txRate))
-        rxRateText.text = context.getString(R.string.speed, Formatter.formatFileSize(context, rxRate))
+        txRateText.text = context.getString(CR.string.speed, Formatter.formatFileSize(context, txRate))
+        rxRateText.text = context.getString(CR.string.speed, Formatter.formatFileSize(context, rxRate))
     }
 
     fun testConnection() = tester.testConnection()

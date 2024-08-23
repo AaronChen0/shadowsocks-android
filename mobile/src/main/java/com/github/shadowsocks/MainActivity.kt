@@ -76,10 +76,10 @@ class MainActivity : AppCompatActivity(), ShadowsocksConnection.Callback, OnPref
         CustomTabsIntent.Builder().apply {
             setColorScheme(CustomTabsIntent.COLOR_SCHEME_SYSTEM)
             setColorSchemeParams(CustomTabsIntent.COLOR_SCHEME_LIGHT, CustomTabColorSchemeParams.Builder().apply {
-                setToolbarColor(ContextCompat.getColor(this@MainActivity, R.color.light_color_primary))
+                setToolbarColor(ContextCompat.getColor(this@MainActivity, com.github.shadowsocks.plugin.R.color.light_color_primary))
             }.build())
             setColorSchemeParams(CustomTabsIntent.COLOR_SCHEME_DARK, CustomTabColorSchemeParams.Builder().apply {
-                setToolbarColor(ContextCompat.getColor(this@MainActivity, R.color.dark_color_primary))
+                setToolbarColor(ContextCompat.getColor(this@MainActivity, com.github.shadowsocks.plugin.R.color.dark_color_primary))
             }.build())
         }.build()
     }
@@ -108,7 +108,7 @@ class MainActivity : AppCompatActivity(), ShadowsocksConnection.Callback, OnPref
     private fun changeState(state: BaseService.State, msg: String? = null, animate: Boolean = true) {
         fab.changeState(state, this.state, animate)
         stats.changeState(state, animate)
-        if (msg != null) snackbar(getString(R.string.vpn_error, msg)).show()
+        if (msg != null) snackbar(getString(com.github.shadowsocks.Core.R.string.vpn_error, msg)).show()
         this.state = state
         ProfilesFragment.instance?.profilesAdapter?.notifyDataSetChanged()  // refresh button enabled state
         stateListener?.invoke(state)
@@ -129,7 +129,7 @@ class MainActivity : AppCompatActivity(), ShadowsocksConnection.Callback, OnPref
     }
 
     private val connect = registerForActivityResult(StartService()) {
-        if (it) snackbar().setText(R.string.vpn_permission_denied).show()
+        if (it) snackbar().setText(com.github.shadowsocks.Core.R.string.vpn_permission_denied).show()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -169,7 +169,7 @@ class MainActivity : AppCompatActivity(), ShadowsocksConnection.Callback, OnPref
         ViewCompat.setOnApplyWindowInsetsListener(fab) { view, insets ->
             view.updateLayoutParams<ViewGroup.MarginLayoutParams> {
                 bottomMargin = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom +
-                        resources.getDimensionPixelOffset(R.dimen.mtrl_bottomappbar_fab_bottom_margin)
+                        resources.getDimensionPixelOffset(com.github.shadowsocks.Core.R.dimen.mtrl_bottomappbar_fab_bottom_margin)
             }
             insets
         }
@@ -205,7 +205,7 @@ class MainActivity : AppCompatActivity(), ShadowsocksConnection.Callback, OnPref
                     displayFragment(AboutFragment())
                 }
                 R.id.faq -> {
-                    launchUrl(getString(R.string.faq_url))
+                    launchUrl(getString(com.github.shadowsocks.Core.R.string.faq_url))
                     return true
                 }
                 R.id.customRules -> displayFragment(CustomRulesFragment())

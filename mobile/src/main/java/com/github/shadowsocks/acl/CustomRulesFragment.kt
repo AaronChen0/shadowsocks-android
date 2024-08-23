@@ -44,6 +44,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.shadowsocks.Core
 import com.github.shadowsocks.MainActivity
 import com.github.shadowsocks.R
+import com.github.shadowsocks.Core.R as CR
 import com.github.shadowsocks.ToolbarFragment
 import com.github.shadowsocks.bg.BaseService
 import com.github.shadowsocks.net.Subnet
@@ -126,10 +127,10 @@ class CustomRulesFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener, 
             }
             templateSelector.onItemSelectedListener = this@AclRuleDialogFragment
             editText.addTextChangedListener(this@AclRuleDialogFragment)
-            setTitle(R.string.edit_rule)
+            setTitle(CR.string.edit_rule)
             setPositiveButton(android.R.string.ok, listener)
             setNegativeButton(android.R.string.cancel, null)
-            if (!arg?.item.isNullOrEmpty()) setNeutralButton(R.string.delete, listener)
+            if (!arg?.item.isNullOrEmpty()) setNeutralButton(CR.string.delete, listener)
             setView(view)
         }
 
@@ -165,7 +166,7 @@ class CustomRulesFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener, 
                 }
                 Template.Url -> try {
                     val url = URL(value.toString())
-                    if ("http".equals(url.protocol, true)) message = getString(R.string.cleartext_http_warning)
+                    if ("http".equals(url.protocol, true)) message = getString(CR.string.cleartext_http_warning)
                     true
                 } catch (e: MalformedURLException) {
                     message = e.readableMessage
@@ -402,7 +403,7 @@ class CustomRulesFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener, 
                     ?: listOf())
             onSelectedItemsUpdated()
         }
-        toolbar.setTitle(R.string.custom_rules)
+        toolbar.setTitle(CR.string.custom_rules)
         toolbar.inflateMenu(R.menu.custom_rules_menu)
         toolbar.setOnMenuItemClickListener(this)
         val activity = activity as MainActivity
@@ -454,7 +455,7 @@ class CustomRulesFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener, 
         }
         val success = Core.trySetPrimaryClip(acl.toString())
         (activity as MainActivity).snackbar().setText(
-                if (success) R.string.action_export_msg else R.string.action_export_err).show()
+                if (success) CR.string.action_export_msg else CR.string.action_export_err).show()
     }
 
     override fun onMenuItemClick(item: MenuItem): Boolean = when (item.itemId) {
@@ -469,7 +470,7 @@ class CustomRulesFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener, 
             try {
                 check(adapter.addToProxy(Core.clipboard.primaryClip!!.getItemAt(0).text.toString()) != null)
             } catch (exc: Exception) {
-                (activity as MainActivity).snackbar().setText(R.string.action_import_err).show()
+                (activity as MainActivity).snackbar().setText(CR.string.action_import_err).show()
                 Timber.d(exc)
             }
             true

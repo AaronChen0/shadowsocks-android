@@ -37,7 +37,7 @@ class PluginPreference(context: Context, attrs: AttributeSet? = null) : ListPref
     lateinit var plugins: PluginList
     val selectedEntry get() = plugins.lookup[value]
     private val entryIcon: Drawable? get() = selectedEntry?.icon
-    private val unknownValueSummary = context.getString(R.string.plugin_unknown)
+    private val unknownValueSummary = context.getString(com.github.shadowsocks.Core.R.string.plugin_unknown)
 
     private var listener: OnPreferenceChangeListener? = null
     override fun getOnPreferenceChangeListener(): OnPreferenceChangeListener? = listener

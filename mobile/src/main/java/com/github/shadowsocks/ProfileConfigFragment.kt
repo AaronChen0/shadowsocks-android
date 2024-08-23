@@ -63,12 +63,12 @@ class ProfileConfigFragment : PreferenceFragmentCompat(),
     data class ProfileIdArg(val profileId: Long) : Parcelable
     class DeleteConfirmationDialogFragment : AlertDialogFragment<ProfileIdArg, Empty>() {
         override fun AlertDialog.Builder.prepare(listener: DialogInterface.OnClickListener) {
-            setTitle(R.string.delete_confirm_prompt)
-            setPositiveButton(R.string.yes) { _, _ ->
+            setTitle(com.github.shadowsocks.Core.R.string.delete_confirm_prompt)
+            setPositiveButton(com.github.shadowsocks.Core.R.string.yes) { _, _ ->
                 ProfileManager.delProfile(arg.profileId)
                 requireActivity().finish()
             }
-            setNegativeButton(R.string.no, null)
+            setNegativeButton(com.github.shadowsocks.Core.R.string.no, null)
         }
     }
 
@@ -146,7 +146,7 @@ class ProfileConfigFragment : PreferenceFragmentCompat(),
             pluginConfigure.isEnabled = selected !is NoPlugin
             pluginConfigure.text = pluginConfiguration.getOptions().toString()
             if (!selected.trusted) {
-                Snackbar.make(requireView(), R.string.plugin_untrusted, Snackbar.LENGTH_LONG).show()
+                Snackbar.make(requireView(), com.github.shadowsocks.Core.R.string.plugin_untrusted, Snackbar.LENGTH_LONG).show()
             }
         }
         AlertDialogFragment.setResultListener<ProfileConfigActivity.UnsavedChangesDialogFragment, Empty>(this) {
@@ -195,7 +195,7 @@ class ProfileConfigFragment : PreferenceFragmentCompat(),
         super.onResume()
         isProxyApps.isChecked = DataStore.proxyApps // fetch proxyApps updated by AppManager
         val fallbackProfile = DataStore.udpFallback?.let { ProfileManager.getProfile(it) }
-        if (fallbackProfile == null) udpFallback.setSummary(R.string.plugin_disabled)
+        if (fallbackProfile == null) udpFallback.setSummary(com.github.shadowsocks.Core.R.string.plugin_disabled)
         else udpFallback.summary = fallbackProfile.formattedName
     }
 

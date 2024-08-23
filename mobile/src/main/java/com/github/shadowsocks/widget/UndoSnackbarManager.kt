@@ -21,7 +21,7 @@
 package com.github.shadowsocks.widget
 
 import com.github.shadowsocks.MainActivity
-import com.github.shadowsocks.R
+import com.github.shadowsocks.Core.R
 import com.google.android.material.snackbar.Snackbar
 
 /**

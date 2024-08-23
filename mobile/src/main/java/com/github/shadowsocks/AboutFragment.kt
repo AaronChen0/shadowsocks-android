@@ -45,7 +45,7 @@ class AboutFragment : ToolbarFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         ViewCompat.setOnApplyWindowInsetsListener(view, ListHolderListener)
-        toolbar.title = getString(R.string.about_title, BuildConfig.VERSION_NAME)
+        toolbar.title = getString(com.github.shadowsocks.core.R.string.about_title, BuildConfig.VERSION_NAME)
         view.findViewById<TextView>(R.id.tv_about).apply {
             ViewCompat.setOnApplyWindowInsetsListener(this, MainListListener)
             text = SpannableStringBuilder(resources.openRawResource(R.raw.about).bufferedReader().readText()
@@ -60,7 +60,7 @@ class AboutFragment : ToolbarFragment() {
                                 startActivity(Intent.createChooser(Intent().apply {
                                     action = Intent.ACTION_SENDTO
                                     data = span.url.toUri()
-                                }, getString(R.string.send_email)))
+                                }, getString(com.github.shadowsocks.core.R.string.send_email)))
                             }
                             else -> (activity as MainActivity).launchUrl(span.url)
                         }

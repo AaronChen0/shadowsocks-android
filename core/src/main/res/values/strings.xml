@@ -25,6 +25,7 @@
   <string name="connection_test_error">Fail to detect internet connection: %s</string>
   <string name="connection_test_fail">Internet Unavailable</string>
   <string name="connection_test_error_status_code">Error code: #%d</string>
+  <string name="file_manager_missing">Please install a file manager like MiXplorer</string>
 
   <!-- proxy category -->
   <string name="profile_name">Profile Name</string>

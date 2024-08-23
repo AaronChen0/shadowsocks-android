@@ -124,7 +124,7 @@ class ServiceButton @JvmOverloads constructor(context: Context, attrs: Attribute
         }
         checked = state == BaseService.State.Connected
         refreshDrawableState()
-        val description = context.getText(if (state.canStop) R.string.stop else R.string.connect)
+        val description = context.getText(if (state.canStop) com.github.shadowsocks.Core.R.string.stop else com.github.shadowsocks.Core.R.string.connect)
         contentDescription = description
         TooltipCompat.setTooltipText(this, description)
         val enabled = state.canStop || state == BaseService.State.Stopped

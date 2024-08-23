@@ -120,7 +120,7 @@ class ScannerActivity : AppCompatActivity(), ImageAnalysis.Analyzer {
     }
 
     private fun permissionMissing() {
-        Toast.makeText(this, R.string.add_profile_scanner_permission_required, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, com.github.shadowsocks.Core.R.string.add_profile_scanner_permission_required, Toast.LENGTH_SHORT).show()
         startImport()
     }
 
@@ -162,7 +162,7 @@ class ScannerActivity : AppCompatActivity(), ImageAnalysis.Analyzer {
                 dataUris.forEachTry { uri ->
                     if (process(feature) { InputImage.fromFilePath(app, uri) }) success = true
                 }
-                Toast.makeText(app, if (success) R.string.action_import_msg else R.string.action_import_err,
+                Toast.makeText(app, if (success) com.github.shadowsocks.Core.R.string.action_import_msg else com.github.shadowsocks.Core.R.string.action_import_err,
                         Toast.LENGTH_SHORT).show()
             } catch (e: Exception) {
                 Toast.makeText(app, e.readableMessage, Toast.LENGTH_LONG).show()

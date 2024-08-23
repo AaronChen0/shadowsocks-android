@@ -44,6 +44,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.shadowsocks.Core.app
+import com.github.shadowsocks.core.R as CR
 import com.github.shadowsocks.database.ProfileManager
 import com.github.shadowsocks.preference.DataStore
 import com.github.shadowsocks.utils.DirectBoot
@@ -278,14 +279,14 @@ class AppManager : AppCompatActivity() {
                         ProfileManager.updateProfile(it)
                     }
                     if (DataStore.directBootAware) DirectBoot.update()
-                    Snackbar.make(list, R.string.action_apply_all, Snackbar.LENGTH_LONG).show()
-                } else Snackbar.make(list, R.string.action_export_err, Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(list, CR.string.action_apply_all, Snackbar.LENGTH_LONG).show()
+                } else Snackbar.make(list, CR.string.action_export_err, Snackbar.LENGTH_LONG).show()
                 return true
             }
             R.id.action_export_clipboard -> {
                 val success = Core.trySetPrimaryClip("${DataStore.bypass}\n${DataStore.individual}")
                 Snackbar.make(list,
-                        if (success) R.string.action_export_msg else R.string.action_export_err,
+                        if (success) CR.string.action_export_msg else CR.string.action_export_err,
                         Snackbar.LENGTH_LONG).show()
                 return true
             }
@@ -300,13 +301,13 @@ class AppManager : AppCompatActivity() {
                         bypassGroup.check(if (enabled.toBoolean()) R.id.btn_bypass else R.id.btn_on)
                         DataStore.individual = apps
                         DataStore.dirty = true
-                        Snackbar.make(list, R.string.action_import_msg, Snackbar.LENGTH_LONG).show()
+                        Snackbar.make(list, CR.string.action_import_msg, Snackbar.LENGTH_LONG).show()
                         initProxiedUids(apps)
                         appsAdapter.notifyItemRangeChanged(0, appsAdapter.itemCount, SWITCH)
                         return true
                     } catch (_: IllegalArgumentException) { }
                 }
-                Snackbar.make(list, R.string.action_import_err, Snackbar.LENGTH_LONG).show()
+                Snackbar.make(list, CR.string.action_import_err, Snackbar.LENGTH_LONG).show()
             }
         }
         return super.onOptionsItemSelected(item)

@@ -40,9 +40,9 @@ import com.github.shadowsocks.widget.ListHolderListener
 class ProfileConfigActivity : AppCompatActivity() {
     class UnsavedChangesDialogFragment : AlertDialogFragment<Empty, Empty>() {
         override fun AlertDialog.Builder.prepare(listener: DialogInterface.OnClickListener) {
-            setTitle(R.string.unsaved_changes_prompt)
-            setPositiveButton(R.string.yes, listener)
-            setNegativeButton(R.string.no, listener)
+            setTitle(com.github.shadowsocks.plugin.R.string.unsaved_changes_prompt)
+            setPositiveButton(com.github.shadowsocks.Core.R.string.yes, listener)
+            setNegativeButton(com.github.shadowsocks.Core.R.string.no, listener)
             setNeutralButton(android.R.string.cancel, null)
         }
     }
@@ -61,7 +61,7 @@ class ProfileConfigActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar!!.apply {
             setDisplayHomeAsUpEnabled(true)
-            setHomeAsUpIndicator(R.drawable.ic_navigation_close)
+            setHomeAsUpIndicator(com.github.shadowsocks.plugin.R.drawable.ic_navigation_close)
         }
         onBackPressedDispatcher.addCallback(unsavedChangesHandler)
     }

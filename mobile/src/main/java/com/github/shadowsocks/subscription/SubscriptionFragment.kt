@@ -76,10 +76,10 @@ class SubscriptionFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener 
             inputLayout = view.findViewById(R.id.content_layout)
             editText.setText(arg.item)
             editText.addTextChangedListener(this@SubDialogFragment)
-            setTitle(R.string.edit_subscription)
+            setTitle(com.github.shadowsocks.Core.R.string.edit_subscription)
             setPositiveButton(android.R.string.ok, listener)
             setNegativeButton(android.R.string.cancel, null)
-            if (!arg.item.isNullOrEmpty()) setNeutralButton(R.string.delete, listener)
+            if (!arg.item.isNullOrEmpty()) setNeutralButton(com.github.shadowsocks.Core.R.string.delete, listener)
             setView(view)
         }
 
@@ -98,7 +98,7 @@ class SubscriptionFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener 
             var message = ""
             positive.isEnabled = try {
                 val url = URL(value.toString())
-                if ("http".equals(url.protocol, true)) message = getString(R.string.cleartext_http_warning)
+                if ("http".equals(url.protocol, true)) message = getString(com.github.shadowsocks.Core.R.string.cleartext_http_warning)
                 true
             } catch (e: MalformedURLException) {
                 message = e.readableMessage
@@ -216,7 +216,7 @@ class SubscriptionFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener 
             }
             if (edited != null) adapter.add(URL(edited)).also { list.post { list.scrollToPosition(it) } }
         }
-        toolbar.setTitle(R.string.subscriptions)
+        toolbar.setTitle(com.github.shadowsocks.Core.R.string.subscriptions)
         toolbar.inflateMenu(R.menu.subscription_menu)
         toolbar.setOnMenuItemClickListener(this)
         SubscriptionService.idle.observe(viewLifecycleOwner) {

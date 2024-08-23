@@ -45,6 +45,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.*
 import com.github.shadowsocks.aidl.TrafficStats
 import com.github.shadowsocks.bg.BaseService
+import com.github.shadowsocks.Core.R as CR
 import com.github.shadowsocks.database.Profile
 import com.github.shadowsocks.database.ProfileManager
 import com.github.shadowsocks.plugin.PluginConfiguration
@@ -165,10 +166,10 @@ class ProfilesFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener, Sea
             text2.text = ArrayList<String>().apply {
                 if (!item.name.isNullOrEmpty()) this += item.formattedAddress
                 val id = PluginConfiguration(item.plugin ?: "").selected
-                if (id.isNotEmpty()) this += getString(R.string.profile_plugin, id)
+                if (id.isNotEmpty()) this += getString(CR.string.profile_plugin, id)
             }.joinToString("\n")
             val context = requireContext()
-            traffic.text = if (tx <= 0 && rx <= 0) null else getString(R.string.traffic,
+            traffic.text = if (tx <= 0 && rx <= 0) null else getString(CR.string.traffic,
                     Formatter.formatFileSize(context, tx), Formatter.formatFileSize(context, rx))
 
             if (item.id == DataStore.profileId) {
@@ -207,7 +208,7 @@ class ProfilesFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener, Sea
             R.id.action_export_clipboard -> {
                 val success = Core.trySetPrimaryClip(this.item.toString(), true)
                 (activity as MainActivity).snackbar().setText(
-                        if (success) R.string.action_export_msg else R.string.action_export_err).show()
+                        if (success) CR.string.action_export_msg else CR.string.action_export_err).show()
                 true
             }
             else -> false
@@ -345,7 +346,7 @@ class ProfilesFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener, Sea
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         ViewCompat.setOnApplyWindowInsetsListener(view, ListHolderListener)
-        toolbar.setTitle(R.string.profiles)
+        toolbar.setTitle(CR.string.profiles)
         toolbar.inflateMenu(R.menu.profile_manager_menu)
         toolbar.setOnMenuItemClickListener(this)
         val searchView = toolbar.findViewById<SearchView>(R.id.action_search)
@@ -408,13 +409,13 @@ class ProfilesFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener, Sea
                     ).toList()
                     if (profiles.isNotEmpty()) {
                         profiles.forEach { ProfileManager.createProfile(it) }
-                        (activity as MainActivity).snackbar().setText(R.string.action_import_msg).show()
+                        (activity as MainActivity).snackbar().setText(CR.string.action_import_msg).show()
                         return true
                     }
                 } catch (exc: Exception) {
                     Timber.d(exc)
                 }
-                (activity as MainActivity).snackbar().setText(R.string.action_import_err).show()
+                (activity as MainActivity).snackbar().setText(CR.string.action_import_err).show()
                 true
             }
             R.id.action_import_file -> {
@@ -434,7 +435,7 @@ class ProfilesFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener, Sea
                 val profiles = ProfileManager.getActiveProfiles()
                 val success = profiles != null && Core.trySetPrimaryClip(profiles.joinToString("\n"), true)
                 (activity as MainActivity).snackbar().setText(
-                        if (success) R.string.action_export_msg else R.string.action_export_err).show()
+                        if (success) CR.string.action_export_msg else CR.string.action_export_err).show()
                 true
             }
             R.id.action_export_file -> {
@@ -451,7 +452,7 @@ class ProfilesFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener, Sea
         } catch (_: ActivityNotFoundException) {
         } catch (_: SecurityException) {
         }
-        (activity as MainActivity).snackbar(getString(R.string.file_manager_missing)).show()
+        (activity as MainActivity).snackbar(getString(com.github.shadowsocks.Core.R.string.file_manager_missing)).show()
     }
 
     private fun importOrReplaceProfiles(dataUris: List<Uri>, replace: Boolean = false) {
