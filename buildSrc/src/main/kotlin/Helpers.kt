@@ -38,7 +38,6 @@ fun Project.setupCommon() {
             warning += "ExtraTranslation"
             warning += "ImpliedQuantity"
             informational += "MissingQuantity"
-            informational += "MissingTranslation"
         }
 
         (this as ExtensionAware).extensions.getByName<KotlinJvmOptions>("kotlinOptions").jvmTarget =

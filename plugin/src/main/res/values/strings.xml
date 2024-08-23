@@ -5,4 +5,6 @@
     <string name="unsaved_changes_prompt">Changes not saved. Do you want to save?</string>
     <string name="apply">Apply</string>
     <string name="browse">Browse…</string>
+    <string name="yes">"Yes"</string>
+    <string name="no">"No"</string>
 </resources>
