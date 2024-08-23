@@ -35,6 +35,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.shadowsocks.R
+import com.github.shadowsocks.core.R as CR
 import com.github.shadowsocks.database.Profile
 import com.github.shadowsocks.database.ProfileManager
 import com.github.shadowsocks.utils.resolveResourceId
@@ -53,7 +54,7 @@ class ConfigActivity : AppCompatActivity() {
 
         fun bindDefault() {
             item = null
-            text.setText(com.github.shadowsocks.core.R.string.profile_default)
+            text.setText(CR.string.profile_default)
             text.isChecked = taskerOption.profileId < 0
         }
         fun bind(item: Profile) {
@@ -98,8 +99,8 @@ class ConfigActivity : AppCompatActivity() {
         ListHolderListener.setup(this)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        toolbar.setTitle(com.github.shadowsocks.core.R.string.app_name)
-        toolbar.setNavigationIcon(com.github.shadowsocks.plugin.R.drawable.ic_navigation_close)
+        toolbar.setTitle(CR.string.app_name)
+        toolbar.setNavigationIcon(CR.drawable.ic_navigation_close)
         toolbar.setNavigationOnClickListener { finish() }
 
         switch = findViewById(R.id.serviceSwitch)

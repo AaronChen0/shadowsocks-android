@@ -32,6 +32,7 @@ import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.github.shadowsocks.core.R as CR
 import com.github.shadowsocks.database.Profile
 import com.github.shadowsocks.database.ProfileManager
 import com.github.shadowsocks.plugin.PluginConfiguration
@@ -52,7 +53,7 @@ class UdpFallbackProfileActivity : AppCompatActivity() {
 
         fun bind(item: Profile?) {
             this.item = item
-            if (item == null) text.setText(com.github.shadowsocks.core.R.string.plugin_disabled) else text.text = item.formattedName
+            if (item == null) text.setText(CR.string.plugin_disabled) else text.text = item.formattedName
             text.isChecked = udpFallback == item?.id
         }
 
@@ -90,7 +91,7 @@ class UdpFallbackProfileActivity : AppCompatActivity() {
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         toolbar.setTitle(com.github.shadowsocks.core.R.string.udp_fallback)
-        toolbar.setNavigationIcon(com.github.shadowsocks.plugin.R.drawable.ic_navigation_close)
+        toolbar.setNavigationIcon(CR.drawable.ic_navigation_close)
         toolbar.setNavigationOnClickListener { finish() }
 
         findViewById<RecyclerView>(R.id.list).apply {

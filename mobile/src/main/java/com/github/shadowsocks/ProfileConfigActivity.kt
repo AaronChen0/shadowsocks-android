@@ -62,7 +62,7 @@ class ProfileConfigActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar!!.apply {
             setDisplayHomeAsUpEnabled(true)
-            setHomeAsUpIndicator(com.github.shadowsocks.plugin.R.drawable.ic_navigation_close)
+            setHomeAsUpIndicator(CR.drawable.ic_navigation_close)
         }
         onBackPressedDispatcher.addCallback(unsavedChangesHandler)
     }
