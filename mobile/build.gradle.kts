@@ -16,12 +16,6 @@ android {
     defaultConfig {
         applicationId = "com.github.shadowsocks"
     }
-
-    sourceSets {
-        getByName("main") {
-            res.srcDirs("../core/src/main/res", "../plugin/src/main/res")
-        }
-    }
 }
 
 dependencies {

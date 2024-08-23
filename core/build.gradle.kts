@@ -32,15 +32,6 @@ android {
         }
     }
 
-    buildTypes {
-        release {
-            buildConfigField("boolean", "DEBUG", "false")
-        }
-        debug {
-            buildConfigField("boolean", "DEBUG", "true")
-        }
-    }
-
     externalNativeBuild.ndkBuild.path("src/main/jni/Android.mk")
 
     sourceSets.getByName("androidTest") {

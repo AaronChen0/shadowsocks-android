@@ -9,12 +9,6 @@ setupCommon()
 android {
     namespace = "com.github.shadowsocks.plugin"
     lint.informational += "GradleDependency"
-
-    sourceSets {
-        getByName("main") {
-            res.srcDirs("../core/src/main/res")
-        }
-    }
 }
 
 dependencies {
