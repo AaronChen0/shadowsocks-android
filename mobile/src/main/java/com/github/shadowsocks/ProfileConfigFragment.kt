@@ -39,6 +39,7 @@ import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.whenCreated
 import androidx.preference.*
+import com.github.shadowsocks.core.R as CR
 import com.github.shadowsocks.database.Profile
 import com.github.shadowsocks.database.ProfileManager
 import com.github.shadowsocks.plugin.*
@@ -63,12 +64,12 @@ class ProfileConfigFragment : PreferenceFragmentCompat(),
     data class ProfileIdArg(val profileId: Long) : Parcelable
     class DeleteConfirmationDialogFragment : AlertDialogFragment<ProfileIdArg, Empty>() {
         override fun AlertDialog.Builder.prepare(listener: DialogInterface.OnClickListener) {
-            setTitle(com.github.shadowsocks.Core.R.string.delete_confirm_prompt)
-            setPositiveButton(com.github.shadowsocks.Core.R.string.yes) { _, _ ->
+            setTitle(CR.string.delete_confirm_prompt)
+            setPositiveButton(CR.string.yes) { _, _ ->
                 ProfileManager.delProfile(arg.profileId)
                 requireActivity().finish()
             }
-            setNegativeButton(com.github.shadowsocks.Core.R.string.no, null)
+            setNegativeButton(CR.string.no, null)
         }
     }
 
@@ -146,7 +147,7 @@ class ProfileConfigFragment : PreferenceFragmentCompat(),
             pluginConfigure.isEnabled = selected !is NoPlugin
             pluginConfigure.text = pluginConfiguration.getOptions().toString()
             if (!selected.trusted) {
-                Snackbar.make(requireView(), com.github.shadowsocks.Core.R.string.plugin_untrusted, Snackbar.LENGTH_LONG).show()
+                Snackbar.make(requireView(), CR.string.plugin_untrusted, Snackbar.LENGTH_LONG).show()
             }
         }
         AlertDialogFragment.setResultListener<ProfileConfigActivity.UnsavedChangesDialogFragment, Empty>(this) {
@@ -195,7 +196,7 @@ class ProfileConfigFragment : PreferenceFragmentCompat(),
         super.onResume()
         isProxyApps.isChecked = DataStore.proxyApps // fetch proxyApps updated by AppManager
         val fallbackProfile = DataStore.udpFallback?.let { ProfileManager.getProfile(it) }
-        if (fallbackProfile == null) udpFallback.setSummary(com.github.shadowsocks.Core.R.string.plugin_disabled)
+        if (fallbackProfile == null) udpFallback.setSummary(CR.string.plugin_disabled)
         else udpFallback.summary = fallbackProfile.formattedName
     }
 

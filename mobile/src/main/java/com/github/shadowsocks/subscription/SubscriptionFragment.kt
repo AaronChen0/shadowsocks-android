@@ -43,6 +43,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.shadowsocks.MainActivity
 import com.github.shadowsocks.R
+import com.github.shadowsocks.core.R as CR
 import com.github.shadowsocks.ToolbarFragment
 import com.github.shadowsocks.plugin.fragment.AlertDialogFragment
 import com.github.shadowsocks.utils.readableMessage
@@ -76,10 +77,10 @@ class SubscriptionFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener 
             inputLayout = view.findViewById(R.id.content_layout)
             editText.setText(arg.item)
             editText.addTextChangedListener(this@SubDialogFragment)
-            setTitle(com.github.shadowsocks.Core.R.string.edit_subscription)
+            setTitle(CR.string.edit_subscription)
             setPositiveButton(android.R.string.ok, listener)
             setNegativeButton(android.R.string.cancel, null)
-            if (!arg.item.isNullOrEmpty()) setNeutralButton(com.github.shadowsocks.Core.R.string.delete, listener)
+            if (!arg.item.isNullOrEmpty()) setNeutralButton(CR.string.delete, listener)
             setView(view)
         }
 
@@ -98,7 +99,7 @@ class SubscriptionFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener 
             var message = ""
             positive.isEnabled = try {
                 val url = URL(value.toString())
-                if ("http".equals(url.protocol, true)) message = getString(com.github.shadowsocks.Core.R.string.cleartext_http_warning)
+                if ("http".equals(url.protocol, true)) message = getString(CR.string.cleartext_http_warning)
                 true
             } catch (e: MalformedURLException) {
                 message = e.readableMessage
@@ -216,7 +217,7 @@ class SubscriptionFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener 
             }
             if (edited != null) adapter.add(URL(edited)).also { list.post { list.scrollToPosition(it) } }
         }
-        toolbar.setTitle(com.github.shadowsocks.Core.R.string.subscriptions)
+        toolbar.setTitle(CR.string.subscriptions)
         toolbar.inflateMenu(R.menu.subscription_menu)
         toolbar.setOnMenuItemClickListener(this)
         SubscriptionService.idle.observe(viewLifecycleOwner) {

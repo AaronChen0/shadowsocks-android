@@ -44,7 +44,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.shadowsocks.Core
 import com.github.shadowsocks.MainActivity
 import com.github.shadowsocks.R
-import com.github.shadowsocks.Core.R as CR
+import com.github.shadowsocks.core.R as CR
 import com.github.shadowsocks.ToolbarFragment
 import com.github.shadowsocks.bg.BaseService
 import com.github.shadowsocks.net.Subnet

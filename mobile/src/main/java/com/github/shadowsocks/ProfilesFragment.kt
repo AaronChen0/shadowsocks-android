@@ -45,7 +45,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.*
 import com.github.shadowsocks.aidl.TrafficStats
 import com.github.shadowsocks.bg.BaseService
-import com.github.shadowsocks.Core.R as CR
+import com.github.shadowsocks.core.R as CR
 import com.github.shadowsocks.database.Profile
 import com.github.shadowsocks.database.ProfileManager
 import com.github.shadowsocks.plugin.PluginConfiguration
@@ -452,7 +452,7 @@ class ProfilesFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener, Sea
         } catch (_: ActivityNotFoundException) {
         } catch (_: SecurityException) {
         }
-        (activity as MainActivity).snackbar(getString(com.github.shadowsocks.Core.R.string.file_manager_missing)).show()
+        (activity as MainActivity).snackbar(getString(CR.string.file_manager_missing)).show()
     }
 
     private fun importOrReplaceProfiles(dataUris: List<Uri>, replace: Boolean = false) {

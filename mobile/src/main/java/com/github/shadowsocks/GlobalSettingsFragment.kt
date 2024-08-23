@@ -34,6 +34,6 @@ class GlobalSettingsFragment : ToolbarFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         ViewCompat.setOnApplyWindowInsetsListener(view, ListHolderListener)
-        toolbar.setTitle(com.github.shadowsocks.Core.R.string.settings)
+        toolbar.setTitle(com.github.shadowsocks.core.R.string.settings)
     }
 }

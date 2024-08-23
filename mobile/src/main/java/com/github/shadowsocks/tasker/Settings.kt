@@ -24,7 +24,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.core.os.bundleOf
-import com.github.shadowsocks.Core.R
+import com.github.shadowsocks.core.R
 import com.github.shadowsocks.database.ProfileManager
 import com.twofortyfouram.locale.api.Intent as ApiIntent
 

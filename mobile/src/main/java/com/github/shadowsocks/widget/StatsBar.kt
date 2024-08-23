@@ -32,7 +32,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.whenStarted
 import com.github.shadowsocks.MainActivity
 import com.github.shadowsocks.R
-import com.github.shadowsocks.Core.R as CR
+import com.github.shadowsocks.core.R as CR
 import com.github.shadowsocks.bg.BaseService
 import com.github.shadowsocks.net.HttpsTest
 import com.google.android.material.bottomappbar.BottomAppBar

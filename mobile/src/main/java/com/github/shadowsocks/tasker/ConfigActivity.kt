@@ -53,7 +53,7 @@ class ConfigActivity : AppCompatActivity() {
 
         fun bindDefault() {
             item = null
-            text.setText(com.github.shadowsocks.Core.R.string.profile_default)
+            text.setText(com.github.shadowsocks.core.R.string.profile_default)
             text.isChecked = taskerOption.profileId < 0
         }
         fun bind(item: Profile) {
@@ -98,7 +98,7 @@ class ConfigActivity : AppCompatActivity() {
         ListHolderListener.setup(this)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        toolbar.setTitle(com.github.shadowsocks.Core.R.string.app_name)
+        toolbar.setTitle(com.github.shadowsocks.core.R.string.app_name)
         toolbar.setNavigationIcon(com.github.shadowsocks.plugin.R.drawable.ic_navigation_close)
         toolbar.setNavigationOnClickListener { finish() }
 

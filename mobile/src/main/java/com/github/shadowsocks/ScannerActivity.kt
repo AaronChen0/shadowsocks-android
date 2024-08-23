@@ -38,6 +38,7 @@ import androidx.core.content.getSystemService
 import androidx.lifecycle.lifecycleScope
 import androidx.work.await
 import com.github.shadowsocks.Core.app
+import com.github.shadowsocks.core.R as CR
 import com.github.shadowsocks.database.Profile
 import com.github.shadowsocks.database.ProfileManager
 import com.github.shadowsocks.utils.forEachTry
@@ -120,7 +121,7 @@ class ScannerActivity : AppCompatActivity(), ImageAnalysis.Analyzer {
     }
 
     private fun permissionMissing() {
-        Toast.makeText(this, com.github.shadowsocks.Core.R.string.add_profile_scanner_permission_required, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, CR.string.add_profile_scanner_permission_required, Toast.LENGTH_SHORT).show()
         startImport()
     }
 
@@ -162,7 +163,7 @@ class ScannerActivity : AppCompatActivity(), ImageAnalysis.Analyzer {
                 dataUris.forEachTry { uri ->
                     if (process(feature) { InputImage.fromFilePath(app, uri) }) success = true
                 }
-                Toast.makeText(app, if (success) com.github.shadowsocks.Core.R.string.action_import_msg else com.github.shadowsocks.Core.R.string.action_import_err,
+                Toast.makeText(app, if (success) CR.string.action_import_msg else CR.string.action_import_err,
                         Toast.LENGTH_SHORT).show()
             } catch (e: Exception) {
                 Toast.makeText(app, e.readableMessage, Toast.LENGTH_LONG).show()

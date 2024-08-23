@@ -43,6 +43,7 @@ import com.github.shadowsocks.aidl.IShadowsocksService
 import com.github.shadowsocks.aidl.ShadowsocksConnection
 import com.github.shadowsocks.aidl.TrafficStats
 import com.github.shadowsocks.bg.BaseService
+import com.github.shadowsocks.core.R as CR
 import com.github.shadowsocks.preference.DataStore
 import com.github.shadowsocks.preference.OnPreferenceDataStoreChangeListener
 import com.github.shadowsocks.subscription.SubscriptionFragment
@@ -108,7 +109,7 @@ class MainActivity : AppCompatActivity(), ShadowsocksConnection.Callback, OnPref
     private fun changeState(state: BaseService.State, msg: String? = null, animate: Boolean = true) {
         fab.changeState(state, this.state, animate)
         stats.changeState(state, animate)
-        if (msg != null) snackbar(getString(com.github.shadowsocks.Core.R.string.vpn_error, msg)).show()
+        if (msg != null) snackbar(getString(CR.string.vpn_error, msg)).show()
         this.state = state
         ProfilesFragment.instance?.profilesAdapter?.notifyDataSetChanged()  // refresh button enabled state
         stateListener?.invoke(state)
@@ -129,7 +130,7 @@ class MainActivity : AppCompatActivity(), ShadowsocksConnection.Callback, OnPref
     }
 
     private val connect = registerForActivityResult(StartService()) {
-        if (it) snackbar().setText(com.github.shadowsocks.Core.R.string.vpn_permission_denied).show()
+        if (it) snackbar().setText(CR.string.vpn_permission_denied).show()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -169,7 +170,7 @@ class MainActivity : AppCompatActivity(), ShadowsocksConnection.Callback, OnPref
         ViewCompat.setOnApplyWindowInsetsListener(fab) { view, insets ->
             view.updateLayoutParams<ViewGroup.MarginLayoutParams> {
                 bottomMargin = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom +
-                        resources.getDimensionPixelOffset(com.github.shadowsocks.Core.R.dimen.mtrl_bottomappbar_fab_bottom_margin)
+                        resources.getDimensionPixelOffset(CR.dimen.mtrl_bottomappbar_fab_bottom_margin)
             }
             insets
         }
@@ -205,7 +206,7 @@ class MainActivity : AppCompatActivity(), ShadowsocksConnection.Callback, OnPref
                     displayFragment(AboutFragment())
                 }
                 R.id.faq -> {
-                    launchUrl(getString(com.github.shadowsocks.Core.R.string.faq_url))
+                    launchUrl(getString(CR.string.faq_url))
                     return true
                 }
                 R.id.customRules -> displayFragment(CustomRulesFragment())

@@ -52,7 +52,7 @@ class UdpFallbackProfileActivity : AppCompatActivity() {
 
         fun bind(item: Profile?) {
             this.item = item
-            if (item == null) text.setText(com.github.shadowsocks.Core.R.string.plugin_disabled) else text.text = item.formattedName
+            if (item == null) text.setText(com.github.shadowsocks.core.R.string.plugin_disabled) else text.text = item.formattedName
             text.isChecked = udpFallback == item?.id
         }
 
@@ -89,7 +89,7 @@ class UdpFallbackProfileActivity : AppCompatActivity() {
         ListHolderListener.setup(this)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        toolbar.setTitle(com.github.shadowsocks.Core.R.string.udp_fallback)
+        toolbar.setTitle(com.github.shadowsocks.core.R.string.udp_fallback)
         toolbar.setNavigationIcon(com.github.shadowsocks.plugin.R.drawable.ic_navigation_close)
         toolbar.setNavigationOnClickListener { finish() }
 

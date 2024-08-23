@@ -31,6 +31,7 @@ import androidx.activity.result.component2
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.github.shadowsocks.core.R as CR
 import com.github.shadowsocks.plugin.PluginContract
 import com.github.shadowsocks.plugin.fragment.AlertDialogFragment
 import com.github.shadowsocks.plugin.fragment.Empty
@@ -41,8 +42,8 @@ class ProfileConfigActivity : AppCompatActivity() {
     class UnsavedChangesDialogFragment : AlertDialogFragment<Empty, Empty>() {
         override fun AlertDialog.Builder.prepare(listener: DialogInterface.OnClickListener) {
             setTitle(com.github.shadowsocks.plugin.R.string.unsaved_changes_prompt)
-            setPositiveButton(com.github.shadowsocks.Core.R.string.yes, listener)
-            setNegativeButton(com.github.shadowsocks.Core.R.string.no, listener)
+            setPositiveButton(CR.string.yes, listener)
+            setNegativeButton(CR.string.no, listener)
             setNeutralButton(android.R.string.cancel, null)
         }
     }

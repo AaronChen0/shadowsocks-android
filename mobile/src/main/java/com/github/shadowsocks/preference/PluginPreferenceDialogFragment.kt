@@ -57,7 +57,7 @@ class PluginPreferenceDialogFragment : PreferenceDialogFragmentCompat() {
         private val text2 = view.findViewById<TextView>(android.R.id.text2)
         private val icon = view.findViewById<ImageView>(android.R.id.icon)
         private val unlock = view.findViewById<View>(R.id.unlock).apply {
-            TooltipCompat.setTooltipText(this, getText(com.github.shadowsocks.Core.R.string.plugin_auto_connect_unlock_only))
+            TooltipCompat.setTooltipText(this, getText(com.github.shadowsocks.core.R.string.plugin_auto_connect_unlock_only))
         }
 
         init {
